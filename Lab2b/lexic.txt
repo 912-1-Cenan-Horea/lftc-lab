@@ -17,12 +17,12 @@ Identifiers:
 Integer-rule:
 <digit_seq> ::= <digit> | <digit><digit_seq>
 <no> ::= <digit> | <nonzero_digit><digit_seq>
-<number> ::= 0 | <no> | -<no> | +<no>
+<number> ::= <no> | -<no> | +<no>
 character:
-<char_literal> ::= '<letter>|<digit>'
+<char_literal> ::= '<letter>'|'<digit>'
 string:
 <char> ::= <letter>|<digit>
 <string> ::= <char> | <char><string>
-<constchar> ::= "string" 
+<constchar> ::= "<string>"
 
 
