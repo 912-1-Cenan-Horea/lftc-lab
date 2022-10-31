@@ -1,0 +1,22 @@
+Instructions are separated by ";"
+<type> ::= int|char|string
+<decl> ::= <type> <identifier>;
+<arraydecl> ::= <type> <identifier>[<no>];
+<array_identifier> ::= <identifier>[<no>]|<identifier>[<identifier>]
+<declstmt> ::= <decl> | <arraydecl>
+<prgrm> ::= <cmpdstmt>
+<cmpdstmt> ::= {<stmtlist>}
+<stmtlist> ::= <stmt>|<stmt>;<stmtlist>
+<stmt> ::= <simplestmt>|<structstmt>
+<simplstmt> ::= <assignstmt>|<iostmt>|<declstmt> 
+<assignstmt> ::= <identifier>=<expression>;
+<expression> ::= <expression>+<term>|<expression>-<term>|<term>
+<term> ::= <term>*<factor>|<term>/<factor>|<term>%<factor>|<factor>
+<factor> ::= (<expression>)|<idetntifier>|<array_identifier>
+<iostmt> ::= read(<identifier>|<array_identifier>);|write(<identifier>|<array_identifier>);
+<structstmt> ::= <cmpdstmt> | <ifstmt> | <forstmt>
+<ifstmt> ::= if(<condition>)<cmpdstmt> | <ifstmt>else <cmpdstmt> | <ifstmt>else <ifstmt>
+<forstmt> ::= for(<declstmt>;<condition>;<simplestmt>)<cmpdstmt>
+<condition> ::= <expression><relation><expression>
+<relation> ::= < | <= | == | != | >= | >
+

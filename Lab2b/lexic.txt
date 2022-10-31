@@ -1,0 +1,28 @@
+Alphabet:
+	a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+	b. Underline character '_';
+	c. Decimal digits (0-9);
+Operators:
+	+ - * / = == < > <= >= %
+Separators:
+	[]{};space
+Reserved words:
+	int char const if for read write
+Identifiers:
+<letter> ::= a|b|...|z|A|B|..|Z|_
+<digit> ::=0|1|2|...|9
+<nonzero_digit> = 1|2|..|9
+<identifier> ::= <letter> | <letter><char_seq>
+<char_seq> ::= <letter><char_seq>|<digit><char_seq>
+Integer-rule:
+<digit_seq> ::= <digit> | <digit><digit_seq>
+<no> ::= <digit> | <nonzero_digit><digit_seq>
+<number> ::= <no> | -<no> | +<no>
+character:
+<char_literal> ::= '<letter>'|'<digit>'
+string:
+<char> ::= <letter>|<digit>
+<string> ::= <char> | <char><string>
+<constchar> ::= "<string>"
+
+

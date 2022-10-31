@@ -1,0 +1,13 @@
+{
+int a;
+read(a);
+for(int i=0;i<a/2;i=i+1)
+{
+	if(a%i==0)
+	{
+	write("NU");
+	i=a;
+	}
+}
+write("DA");
+}
