@@ -53,7 +53,7 @@ public class Parser {
                     PIF.add(new AbstractMap.SimpleEntry<String, Integer>(tokens[j], -1));
                 } else if (reservedWords.contains(tokens[j])) {
                     PIF.add(new AbstractMap.SimpleEntry<String, Integer>(tokens[j], -1));
-                } else if (isNumber(tokens[j]) || isStringConstant(tokens[j])) {
+                } else if (isNumber(tokens[j]) || isStringConstant(tokens[j]) || isCharConstant(tokens[j])) {
                     PIF.add(new AbstractMap.SimpleEntry<String, Integer>("constant", constantsTable.add(tokens[j])));
                 } else if(isIdentifier(tokens[j])) {
                     PIF.add(new AbstractMap.SimpleEntry<String, Integer>("identifier", symbolTable.add(tokens[j])));
@@ -81,9 +81,8 @@ public class Parser {
     private boolean isStringConstant(String string) {
         return string.startsWith("\"") && string.endsWith("\"");
     }
-
-    private boolean isComposedIdentifier(String identifier) {
-        return identifier.contains("(") && identifier.contains(")");
+    private boolean isCharConstant(String string) {
+        return string.startsWith("'") && string.endsWith("'");
     }
 
     public void printPIF() {
