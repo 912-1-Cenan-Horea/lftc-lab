@@ -70,12 +70,7 @@ public class Parser {
     }
 
     private boolean isNumber(String number) {
-        try {
-            Integer.parseInt(number);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+        return number.matches("[+-]?[1-9]?[0-9]*");
     }
 
     private boolean isStringConstant(String string) {
@@ -86,15 +81,25 @@ public class Parser {
     }
 
     public void printPIF() {
-        if (errors.size()>0)
-        {
-            System.out.println("Errors:");
-            for (String error:errors)
-                System.out.println(error);
-            return;
+        File pif = new File("src/main/resources/pif.txt");
+        try {
+            Formatter formatter = new Formatter(pif);
+            for (int i = 0; i < PIF.size(); i++) {
+                formatter.format("%s %d\r\n", PIF.get(i).getKey(), PIF.get(i).getValue());
+            }
+            formatter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        for (AbstractMap.SimpleEntry<String, Integer> entry : PIF) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+        File errors = new File("src/main/resources/errors.txt");
+        try {
+            Formatter formatter = new Formatter(errors);
+            for (int i = 0; i < this.errors.size(); i++) {
+                formatter.format("%s\r\n", this.errors.get(i));
+            }
+            formatter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
