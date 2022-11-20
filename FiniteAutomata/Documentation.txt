@@ -1,3 +1,5 @@
+Github link : https://github.com/912-1-Cenan-Horea/lftc-lab/tree/main/FiniteAutomata
+
 The program reads data from the file
 File structure (BNF)
 
